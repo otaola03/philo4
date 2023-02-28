@@ -6,7 +6,7 @@
 #    By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 14:10:40 by jperez            #+#    #+#              #
-#    Updated: 2023/02/26 18:32:25 by jperez           ###   ########.fr        #
+#    Updated: 2023/02/28 17:19:38 by jperez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,10 +50,10 @@ OBJS = $Omain.o $Oft_aux.o $Oft_create_mutex.o $Oft_save_param.o $Oft_manage_thr
 	   $Oft_general_free.o $Oft_print.o
 
 SRCS_BONUS = $(BS)main.c $(BS)ft_aux.c $(BS)ft_create_forks.c $(BS)ft_general_free.c $(BS)ft_initialice_philo.c \
-		$(BS)ft_manage_time.c $(BS)ft_philo_actions.c $(BS)ft_save_param.c $(BS)ft_manage_sem.c $(BS)ft_cheff.c
+		$(BS)ft_manage_time.c $(BS)ft_philo_actions.c $(BS)ft_save_param.c $(BS)ft_manage_sem.c $(BS)ft_cheff.c $(BS)ft_print.c
 
 OBJS_BONUS = $(BO)main.o $(BO)ft_aux.o $(BO)ft_create_forks.o $(BO)ft_general_free.o $(BO)ft_initialice_philo.o \
-		$(BO)ft_manage_time.o $(BO)ft_philo_actions.o $(BO)ft_save_param.o $(BO)ft_manage_sem.o $(BO)ft_cheff.o
+		$(BO)ft_manage_time.o $(BO)ft_philo_actions.o $(BO)ft_save_param.o $(BO)ft_manage_sem.o $(BO)ft_cheff.o $(BO)ft_print.o
 
 # ---------- CREATE OBJECTS FOLDERS ----------
 
