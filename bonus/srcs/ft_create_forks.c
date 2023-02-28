@@ -6,16 +6,43 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 20:30:43 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/28 18:45:33 by jperez           ###   ########.fr       */
+/*   Updated: 2023/02/28 19:50:15 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/philosophers_bonus.h"
 
+void	ft_end_forks(t_mem *mem)
+{
+	int	i;
+
+	sem_wait(mem->kill_sem);
+	i = -1;
+	while (++i < mem->num)
+		kill(mem->pid[i], SIGKILL);
+	mem->dead = DEAD;
+	i = -1;
+	while (++i < mem->num * mem->times_eat)
+		sem_post(mem->meals_sem);
+	i = -1;
+	while (++i < mem->num)
+		waitpid(mem->pid[i], NULL, 0);
+}
+
+void	ft_meals_thread(t_mem *mem)
+{
+	pthread_t	check_meals;
+
+	if (mem->times_eat != -1)
+	{
+		pthread_create(&check_meals, NULL, &ft_check_meals, mem);
+		pthread_detach(check_meals);
+	}
+}
+
 void	ft_create_forks(t_mem *mem)
 {
 	int	i;
-	pthread_t	check_meals;
 
 	i = -1;
 	mem->start = get_time();
@@ -29,17 +56,7 @@ void	ft_create_forks(t_mem *mem)
 			return ;
 		}
 	}
-	if (mem->times_eat != -1)
-	{
-		pthread_create(&check_meals, NULL, &ft_check_meals, mem);
-		pthread_detach(check_meals);
-	}
+	ft_meals_thread(mem);
 	sem_post(mem->start_sem);
-	sem_wait(mem->kill_sem);
-	i = -1;
-	while (++i < mem->num)
-		kill(mem->pid[i], SIGKILL);
-	i = -1;
-	while (++i < mem->num)
-		waitpid(mem->pid[i], NULL, 0);
+	ft_end_forks(mem);
 }

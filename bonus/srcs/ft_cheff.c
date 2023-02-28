@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:41:55 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/28 19:41:34 by jperez           ###   ########.fr       */
+/*   Updated: 2023/02/28 19:50:41 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	*ft_check_meals(void *arg)
 	i = -1;
 	while (++i < mem->num * mem->times_eat)
 		sem_wait(mem->meals_sem);
+	if (mem->dead == DEAD)
+		return (0);
 	sem_wait(mem->print_sem);
 	sem_post(mem->kill_sem);
 	return (0);
