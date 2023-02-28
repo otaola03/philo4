@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:15:48 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/28 17:22:12 by jperez           ###   ########.fr       */
+/*   Updated: 2023/02/28 19:43:31 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ void	ft_putnbr(int nb) {
 	if (nb < 10) ft_putchar(nb + 48);
 }
 
-void	ft_print_msg(t_mem *mem, char *color, char *msg, long end)
+void	ft_print_msg(t_mem *mem, char *color, char *msg)
 {
 	sem_wait(mem->print_sem);
 	if (mem->dead == ALIVE)
 	{
 		write(1, color, 7);
 		write(1, " ", 1);
-		ft_putnbr((end - mem->start) / 1000);
+		ft_putnbr((get_time() - mem->start) / 1000);
 		write(1, " ", 1);
 		ft_putnbr(mem->philo->id + 1);
 		write(1, " ", 1);

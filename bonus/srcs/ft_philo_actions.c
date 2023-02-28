@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:15:40 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/28 18:52:29 by jperez           ###   ########.fr       */
+/*   Updated: 2023/02/28 19:40:36 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int	ft_eat(t_mem *mem)
 {
 	mem->philo->status = EATING;
 	sem_wait(mem->philo_sem);
-	ft_print_msg(mem, WHITE, FORK, get_time());
+	ft_print_msg(mem, WHITE, FORK);
 	sem_wait(mem->philo_sem);
-	ft_print_msg(mem, WHITE, FORK, get_time());
-	ft_print_msg(mem, GREEN, EAT, get_time());
+	ft_print_msg(mem, WHITE, FORK);
+	ft_print_msg(mem, GREEN, EAT);
 	mem->philo->start = get_time();
 	mem->start += get_time()%10;
 	ft_usleep(mem->eat);
@@ -44,10 +44,10 @@ void	ft_philo_actions(t_mem *mem)
 		if (ft_eat(mem) == mem->times_eat)
 			break ;
 		mem->philo->status = ALIVE;
-		ft_print_msg(mem, BLUE, SLEEP, get_time());
+		ft_print_msg(mem, BLUE, SLEEP);
 		ft_usleep(mem->sleep);
 		mem->start += get_time()%10;
-		ft_print_msg(mem, BLUE2, THINK, get_time());
+		ft_print_msg(mem, BLUE2, THINK);
 	}
 	pthread_join(mem->philo->cheff, NULL);
 }

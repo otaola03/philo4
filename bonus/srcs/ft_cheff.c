@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:41:55 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/28 16:23:20 by jperez           ###   ########.fr       */
+/*   Updated: 2023/02/28 19:41:34 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_check_live(t_mem *mem)
 	{
 		sem_wait(mem->dead_sem);
 		if (mem->dead == ALIVE)
-			ft_print_msg(mem, RED, DIE, get_time());
+			ft_print_msg(mem, RED, DIE);
 		sem_wait(mem->print_sem);
 		mem->dead = DEAD;
 		return (1);

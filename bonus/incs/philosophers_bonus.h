@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 19:31:50 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/28 18:38:54 by jperez           ###   ########.fr       */
+/*   Updated: 2023/02/28 19:41:48 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ void	ft_general_free(t_mem *mem);
 
 /* ----------- PHILO-ACTIONS --------------*/
 void	ft_philo_actions(t_mem *mem);
-void	ft_print_msg(t_mem *mem, char *color, char *msg, long end);
 
 /* ----------- MANAGE-TIME--------------*/
 long	get_time(void);
@@ -117,6 +116,6 @@ void	*ft_cheff(void *arg);
 void	*ft_check_meals(void *arg);
 
 /* ----------- MANAGE-SEM --------------*/
-void	ft_print_msg(t_mem *mem, char *color, char *msg, long end);
+void	ft_print_msg(t_mem *mem, char *color, char *msg);
 
 #endif
