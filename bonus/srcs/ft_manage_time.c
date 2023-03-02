@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:40:28 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/28 17:12:31 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/02 20:26:37 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ void	ft_usleep(suseconds_t time)
 
 	start = get_time();
 	while (get_time() - start < time)
-		usleep(750);
+	{
+		usleep(50);
+		usleep(50);
+	}
 }
