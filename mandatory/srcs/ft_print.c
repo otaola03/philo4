@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:21:27 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 20:25:02 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 21:26:51 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	ft_putnbr(int nb) {
 
 void	ft_print_msg(t_philo *philo, char *color, char *msg, long end)
 {
+	if (philo->mem->start_cont == philo->mem->times_to_eat * philo->mem->num)
+		return ;
 	ft_lock_mutex(&philo->mem->print_mtx);
 	if (philo->mem->status != dead)
 	{
