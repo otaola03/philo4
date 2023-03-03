@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:15:40 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/27 18:43:22 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 20:38:58 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,12 @@ void	ft_philo_loop(t_philo *philo)
 	while (philo->mem->status == alive)
 	{
 		if (ft_eat(philo) == philo->mem->times_to_eat)
+		{
+			ft_lock_mutex(&philo->mem->cont_mtx);
+			philo->mem->start_cont += philo->times_eat;
+			ft_unlock_mutex(&philo->mem->cont_mtx);
 			break ;
+		}
 		ft_print_msg(philo, PURPLE, "is sleeping", get_time());
 		ft_usleep2(philo->mem->sleep);
 		philo->mem->start_time += get_time()%10;

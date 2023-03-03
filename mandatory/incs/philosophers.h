@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:53:08 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/27 18:21:27 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 20:35:43 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef enum	e_philo_status {
 }	t_philo_status;
 
 typedef enum	e_mem_status {
-	creating, alive, dead
+	creating, alive, dead, block
 }	t_mem_status;
 
 typedef struct s_philo	t_philo;
@@ -50,6 +50,7 @@ typedef struct s_mem
 	pthread_t		cheff;
 	pthread_mutex_t	*forks_mtx;
 	pthread_mutex_t	print_mtx;
+	pthread_mutex_t	cont_mtx;
 	long			start_time;
 	t_mem_status	status;
 	t_philo_status	*philos_status;

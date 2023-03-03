@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:17:22 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/02 20:31:28 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 20:36:05 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_save_param(char **argv, int argc, t_mem *mem)
 {
 	if (ft_check_argv(argv))
 		return (1);
-	mem->start_cont = 1;
+	mem->start_cont = 0;
 	mem->num = ft_atoi(argv[0]);
 	mem->die = ft_atoi(argv[1]) * 1000;
 	mem->eat = ft_atoi(argv[2]) * 1000;
