@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 19:31:50 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/01 18:05:21 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 19:22:33 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_mem
 	t_philo			*philo;
 	long			start;
 	int				dead;
+	int				max_eat;
 	int				*pid;
 	sem_t			*philo_sem;
 	sem_t			*print_sem;

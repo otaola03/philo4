@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:17:22 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/02 19:59:24 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 19:23:31 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ int	ft_save_param(char **argv, int argc, t_mem *mem)
 	mem->eat = ft_atoi(argv[2]) * 1000;
 	mem->sleep = ft_atoi(argv[3]) * 1000;
 	if (argc == 6)
+	{
 		mem->times_eat = ft_atoi(argv[4]);
+		mem->max_eat = mem->num * mem->times_eat;
+	}
 	else
 		mem->times_eat = -1;
 	mem->dead = ALIVE;

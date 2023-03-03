@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 20:30:43 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 17:21:59 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 19:07:08 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_create_forks(t_mem *mem)
 			exit(-1);
 		}
 	}
-	ft_meals_thread(mem);
+	//ft_meals_thread(mem);
 	mem->start = get_time();
 	sem_post(mem->start_sem);
 	ft_end_forks(mem);
