@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:15:40 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 19:07:26 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 20:43:24 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,8 @@ void	ft_philo_loop(t_mem *mem)
 {
 	while (mem->dead == ALIVE)
 	{
-		/*
 		if (ft_eat(mem) == mem->times_eat)
 			break ;
-			*/
-		ft_eat(mem);
 		ft_print_msg(mem, BLUE, SLEEP);
 		ft_usleep(mem->sleep);
 		//mem->start += get_time() % 10;

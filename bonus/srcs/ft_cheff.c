@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:41:55 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 20:00:39 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 20:49:40 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,6 @@ void	*ft_cheff(void *arg)
 	{
 		if (ft_check_live(mem))
 			break;
-		if (mem->times_eat != -1 && mem->philo->times_eat >= mem->max_eat)
-		{
-			mem->dead = DEAD;
-			sem_post(mem->kill_sem);
-			sem_wait(mem->print_sem);
-			return (0);
-		}
 	}
 	sem_post(mem->kill_sem);
 	return (0);
