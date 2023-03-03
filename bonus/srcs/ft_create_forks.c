@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 20:30:43 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 17:17:13 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 17:21:59 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_create_forks(t_mem *mem)
 	int	i;
 
 	i = -1;
-	mem->start = get_time();
+	//mem->start = get_time();
 	while (++i < mem->num)
 	{
 		mem->pid[i] = fork();
@@ -55,10 +55,9 @@ void	ft_create_forks(t_mem *mem)
 			ft_philo_actions(mem);
 			exit(-1);
 		}
-		else if (i == mem->num - 1)
-			mem->start = get_time();
 	}
 	ft_meals_thread(mem);
+	mem->start = get_time();
 	sem_post(mem->start_sem);
 	ft_end_forks(mem);
 }

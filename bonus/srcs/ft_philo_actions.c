@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:15:40 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 17:15:18 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 17:22:28 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,6 @@ void	ft_philo_loop(t_mem *mem)
 	}
 }
 
-void	*ft_f1(void *arg)
-{
-
-}
-
 void	ft_philo_actions(t_mem *mem)
 {
 	sem_wait(mem->start_sem);
@@ -67,4 +62,5 @@ void	ft_philo_actions(t_mem *mem)
 	pthread_create(&mem->philo->cheff, NULL, &ft_cheff, mem);
 	ft_philo_loop(mem);
 	pthread_join(mem->philo->cheff, NULL);
+	return ;
 }
