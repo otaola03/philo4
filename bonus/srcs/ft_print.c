@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:15:48 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 19:24:27 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 19:51:50 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ft_print_msg(t_mem *mem, char *color, char *msg)
 	long	time;
 
 	time = get_time();
-	usleep(1000);
 	sem_wait(mem->print_sem);
 	if (mem->dead == ALIVE)
 	{
@@ -48,5 +47,6 @@ void	ft_print_msg(t_mem *mem, char *color, char *msg)
 		write(1, WHITE, 7);
 		write(1, "\n", 1);
 	}
-	sem_post(mem->print_sem);
+	if (mem->dead != DEAD)
+		sem_post(mem->print_sem);
 }

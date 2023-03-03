@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:41:55 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 19:25:08 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 20:00:39 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	*ft_cheff(void *arg)
 			mem->dead = DEAD;
 			sem_post(mem->kill_sem);
 			sem_wait(mem->print_sem);
+			return (0);
 		}
 	}
 	sem_post(mem->kill_sem);

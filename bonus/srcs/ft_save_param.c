@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:17:22 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 19:23:31 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 19:45:27 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ int	ft_check_argv(char **argv)
 	return (0);
 }
 
+int	ft_check_input(t_mem *mem)
+{
+	if (mem->num <= 0 || mem->die <= 0 || mem->eat <= 0 || mem->sleep <= 0 \
+		|| (mem->times_eat <= 0 && mem->times_eat != -1))
+	{
+		write(1, "Incorrect input\n", 16);
+		return (1);
+	}
+	return (0);
+}
+
 int	ft_save_param(char **argv, int argc, t_mem *mem)
 {
 	if (ft_check_argv(argv))
@@ -44,10 +55,12 @@ int	ft_save_param(char **argv, int argc, t_mem *mem)
 	if (argc == 6)
 	{
 		mem->times_eat = ft_atoi(argv[4]);
-		mem->max_eat = mem->num * mem->times_eat;
+		mem->max_eat = mem->num  * mem->times_eat;
 	}
 	else
 		mem->times_eat = -1;
+	if (ft_check_input(mem))
+		return (1);
 	mem->dead = ALIVE;
 	mem->philo_ended = 0;
 	mem->pid = (int *)malloc(sizeof(int) * mem->num);

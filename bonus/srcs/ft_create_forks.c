@@ -6,19 +6,19 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 20:30:43 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 19:07:08 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/03 19:28:14 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/philosophers_bonus.h"
 
-void	ft_end_forks(t_mem *mem)
+void	ft_end_forks(t_mem *mem, int num)
 {
 	int	i;
 
-	sem_wait(mem->kill_sem);
 	i = -1;
-	while (++i < mem->num)
+	sem_wait(mem->kill_sem);
+	while (++i < num)
 		kill(mem->pid[i], SIGKILL);
 	mem->dead = DEAD;
 	i = -1;
@@ -59,5 +59,5 @@ void	ft_create_forks(t_mem *mem)
 	//ft_meals_thread(mem);
 	mem->start = get_time();
 	sem_post(mem->start_sem);
-	ft_end_forks(mem);
+	ft_end_forks(mem, mem->num);
 }
