@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:17:22 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 20:36:05 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:23:32 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,13 @@ int	ft_check_argv(char **argv)
 	return (0);
 }
 
-t_philo_status *ft_initialize_philos_status(int num)
+t_philo_status	*ft_initialize_philos_status(int num)
 {
-	int	i;
+	int				i;
 	t_philo_status	*philos_status;
 
-	philos_status = (t_philo_status *)malloc(sizeof(t_philo_status) * (num + 1));
+	philos_status = (t_philo_status *)malloc(sizeof(t_philo_status) * \
+		(num + 1));
 	if (!philos_status)
 		return (NULL);
 	i = -1;
