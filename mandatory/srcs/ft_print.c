@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:21:27 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 21:26:51 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 13:58:12 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_print_msg(t_philo *philo, char *color, char *msg, long end)
 	{
 		write(1, color, 7);
 		write(1, " ", 1);
-		ft_putnbr((end - philo->mem->start_time) / 1000);
+		ft_putnbr((get_time() - philo->mem->start_time) / 1000);
 		write(1, " ", 1);
 		ft_putnbr(philo->id + 1);
 		write(1, " ", 1);
