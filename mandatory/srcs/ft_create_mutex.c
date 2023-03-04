@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:59:56 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/04 14:02:46 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:15:57 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	ft_create_mutex(t_mem *mem, int num)
 {
 	int	i;
 
-	mem->forks_mtx = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * (num + 1));
+	mem->forks_mtx = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * \
+		(num + 1));
 	i = -1;
 	while (++i < num)
 		if (pthread_mutex_init(&mem->forks_mtx[i], NULL))
