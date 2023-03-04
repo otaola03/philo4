@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 20:30:43 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 20:50:38 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 13:16:53 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_create_forks(t_mem *mem)
 	int	i;
 
 	i = -1;
-	//mem->start = get_time();
+	mem->start = get_time();
 	while (++i < mem->num)
 	{
 		mem->pid[i] = fork();

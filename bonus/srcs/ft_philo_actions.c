@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:15:40 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 20:43:24 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 13:28:21 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	ft_take_forks(t_mem *mem)
 {
 	sem_wait(mem->philo_sem);
-	ft_print_msg(mem, WHITE, FORK);
+	ft_print_msg(mem, WHITE, FORK, get_time());
 	sem_wait(mem->philo_sem);
-	ft_print_msg(mem, WHITE, FORK);
+	ft_print_msg(mem, WHITE, FORK, get_time());
 }
 
 int	ft_eat(t_mem *mem)
 {
 	ft_take_forks(mem);
-	ft_print_msg(mem, GREEN, EAT);
+	ft_print_msg(mem, GREEN, EAT, get_time());
 	mem->philo->start = get_time();
 	//mem->start += get_time() % 10;
 	ft_usleep(mem->eat);
@@ -40,10 +40,10 @@ void	ft_philo_loop(t_mem *mem)
 	{
 		if (ft_eat(mem) == mem->times_eat)
 			break ;
-		ft_print_msg(mem, BLUE, SLEEP);
+		ft_print_msg(mem, BLUE, SLEEP, get_time());
 		ft_usleep(mem->sleep);
 		//mem->start += get_time() % 10;
-		ft_print_msg(mem, BLUE2, THINK);
+		ft_print_msg(mem, BLUE2, THINK, get_time());
 	}
 }
 
@@ -55,9 +55,7 @@ void	ft_philo_actions(t_mem *mem)
 	mem->philo->start = get_time();
 	if (mem->philo->id %2 != 0)
 	{
-		usleep(500);
-		usleep(500);
-		usleep(500);
+		usleep(100);
 	}
 	pthread_create(&mem->philo->cheff, NULL, &ft_cheff, mem);
 	ft_philo_loop(mem);

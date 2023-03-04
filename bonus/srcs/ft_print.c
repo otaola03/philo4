@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:15:48 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 19:51:50 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 13:28:49 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putchar(char c) {
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb) {
+void	ft_putnbr(long nb) {
 	if (nb < 0) {
 		ft_putchar('-');
 		nb = -nb;
@@ -28,17 +28,17 @@ void	ft_putnbr(int nb) {
 	if (nb < 10) ft_putchar(nb + 48);
 }
 
-void	ft_print_msg(t_mem *mem, char *color, char *msg)
+void	ft_print_msg(t_mem *mem, char *color, char *msg, long time)
 {
-	long	time;
+	//long	time;
 
-	time = get_time();
+	//time = get_time();
 	sem_wait(mem->print_sem);
 	if (mem->dead == ALIVE)
 	{
 		write(1, color, 7);
 		write(1, " ", 1);
-		ft_putnbr((time - mem->start) / 1000);
+		ft_putnbr((get_time() - mem->start));
 		write(1, " ", 1);
 		ft_putnbr(mem->philo->id + 1);
 		write(1, " ", 1);

@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 18:41:55 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 20:49:40 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 13:26:45 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,14 @@ int	ft_check_live(t_mem *mem)
 	//end = get_time();
 	if (get_time() - mem->philo->start > mem->die)
 	{
-		usleep(1000);
+		//usleep(1000);
 		sem_wait(mem->dead_sem);
 		if (mem->dead == ALIVE)
-			ft_print_msg(mem, RED, DIE);
+			ft_print_msg(mem, RED, DIE, get_time());
 		sem_wait(mem->print_sem);
 		mem->dead = DEAD;
 		return (1);
 	}
-	usleep(100);
 	return (0);
 }
 
@@ -40,6 +39,7 @@ void	*ft_cheff(void *arg)
 	mem = arg;
 	while (mem->dead == ALIVE)
 	{
+		usleep(100);
 		if (ft_check_live(mem))
 			break;
 	}

@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:17:22 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 19:45:27 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 12:55:32 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int	ft_save_param(char **argv, int argc, t_mem *mem)
 		return (1);
 	}
 	mem->num = ft_atoi(argv[0]);
-	mem->die = ft_atoi(argv[1]) * 1000;
-	mem->eat = ft_atoi(argv[2]) * 1000;
-	mem->sleep = ft_atoi(argv[3]) * 1000;
+	mem->die = ft_atoi(argv[1]);
+	mem->eat = ft_atoi(argv[2]);
+	mem->sleep = ft_atoi(argv[3]);
 	if (argc == 6)
 	{
 		mem->times_eat = ft_atoi(argv[4]);

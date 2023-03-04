@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 19:31:50 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 19:22:33 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 13:24:03 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ typedef struct s_mem
 	int				num;
 	int				times_eat;
 	int				philo_ended;
-	suseconds_t		die;
-	suseconds_t		eat;
-	suseconds_t		sleep;
+	long			die;
+	long			eat;
+	long			sleep;
 	t_philo			*philo;
 	long			start;
+	long			gap;
 	int				dead;
 	int				max_eat;
 	int				*pid;
@@ -104,7 +105,7 @@ void	ft_philo_actions(t_mem *mem);
 
 /* ----------- MANAGE-TIME--------------*/
 long	get_time(void);
-void	ft_usleep(suseconds_t time);
+void	ft_usleep(long time);
 
 /* ----------- CREATE-FORKSCREATE-FORKS  --------------*/
 void	ft_create_forks(t_mem *mem);
@@ -117,6 +118,6 @@ void	*ft_cheff(void *arg);
 void	*ft_check_meals(void *arg);
 
 /* ----------- MANAGE-SEM --------------*/
-void	ft_print_msg(t_mem *mem, char *color, char *msg);
+void	ft_print_msg(t_mem *mem, char *color, char *msg, long time);
 
 #endif
