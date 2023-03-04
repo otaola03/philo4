@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:15:40 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/04 14:09:25 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:13:48 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,6 @@ void	*ft_philo_actions(void *arg)
 
 	philo = arg;
 	philo->mem->status  = alive; 
-	/*
-	while (philo->mem->status == creating)
-		usleep(1);
-	*/
-	/*
-	if (philo->id % 2 == 0)
-	{
-		while (philo->mem->start_cont != philo->mem->num / 2)
-			usleep(1);
-	}
-	else
-		philo->mem->start_cont++;
-		*/
 	philo->start = get_time();
 	if (philo->id % 2 == 0)
 		ft_usleep2(philo->mem->sleep/1000);
