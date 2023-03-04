@@ -6,26 +6,31 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:21:27 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/04 13:58:12 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:22:15 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/philosophers.h"
 
-void	ft_putchar(char c) {
+void	ft_putchar(char c)
+{
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nb) {
-	if (nb < 0) {
+void	ft_putnbr(int nb)
+{
+	if (nb < 0)
+	{
 		ft_putchar('-');
 		nb = -nb;
 	}
-	if (nb >= 10) {
+	if (nb >= 10)
+	{
 		ft_putnbr(nb / 10);
 		nb = nb % 10;
 	}
-	if (nb < 10) ft_putchar(nb + 48);
+	if (nb < 10)
+		ft_putchar(nb + 48);
 }
 
 void	ft_print_msg(t_philo *philo, char *color, char *msg, long end)
