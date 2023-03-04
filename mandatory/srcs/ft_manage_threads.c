@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:23:48 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/27 17:39:38 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:17:46 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_start_threads(t_mem *mem, int num)
 	if (num == 1)
 	{
 		ft_usleep2(mem->sleep);
-		printf("\033[0;31m%ld 1 died\n", mem->sleep/1000);
+		printf("\033[0;31m%ld 1 died\n", mem->sleep / 1000);
 		return (1);
 	}
 	mem->th = (pthread_t *)malloc(sizeof(pthread_t) * num);
