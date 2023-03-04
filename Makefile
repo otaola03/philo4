@@ -6,7 +6,7 @@
 #    By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 14:10:40 by jperez            #+#    #+#              #
-#    Updated: 2023/02/28 17:19:38 by jperez           ###   ########.fr        #
+#    Updated: 2023/03/04 14:38:24 by jperez           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ BO = bonus/objs/
 F = -fsanitize=address
 
 CC = gcc -O3 -g3 $(F) 
-#CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 RM = -rm -rf
 

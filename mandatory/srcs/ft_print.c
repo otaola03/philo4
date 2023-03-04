@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:21:27 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/04 14:22:15 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:41:38 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,5 @@ void	ft_print_msg(t_philo *philo, char *color, char *msg, long end)
 		write(1, "\n", 1);
 	}
 	ft_unlock_mutex(&philo->mem->print_mtx);
+	end = 0;
 }

@@ -6,13 +6,13 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:15:40 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/04 14:20:45 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:41:53 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/philosophers.h"
 
-void	ft_take_forks(t_philo *philo, int n, int id)
+void	ft_take_forks(t_philo *philo)
 {
 	ft_lock_mutex(philo->fork1);
 	ft_print_msg(philo, WHITE, "has taken a fork", get_time());
@@ -23,7 +23,7 @@ void	ft_take_forks(t_philo *philo, int n, int id)
 
 int	ft_eat(t_philo *philo)
 {
-	ft_take_forks(philo, philo->mem->num, philo->id);
+	ft_take_forks(philo);
 	ft_print_msg(philo, GREEN, "is eating", get_time());
 	philo->start = get_time();
 	ft_usleep2(philo->mem->eat);

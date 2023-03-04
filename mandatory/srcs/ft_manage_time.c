@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:40:28 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/27 18:21:23 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:39:07 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ long	get_time(void)
 void	ft_usleep2(suseconds_t time)
 {
 	long	start;
-	long	end;
 
 	start = get_time();
 	while (get_time() - start < time)
