@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:15:40 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/04 13:58:01 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:09:25 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int	ft_eat(t_philo *philo)
 	ft_print_msg(philo, GREEN, "is eating", get_time());
 	philo->start = get_time();
 	ft_usleep2(philo->mem->eat);
+		ft_lock_mutex(&philo->mem->gap_mtx);
 	philo->mem->start_time += get_time()%10;
+		ft_unlock_mutex(&philo->mem->gap_mtx);
 
 	ft_unlock_mutex(philo->fork1);
 	ft_unlock_mutex(philo->fork2);
@@ -51,7 +53,9 @@ void	ft_philo_loop(t_philo *philo)
 		}
 		ft_print_msg(philo, PURPLE, "is sleeping", get_time());
 		ft_usleep2(philo->mem->sleep);
+			ft_lock_mutex(&philo->mem->gap_mtx);
 		philo->mem->start_time += get_time()%10;
+			ft_unlock_mutex(&philo->mem->gap_mtx);
 		ft_print_msg(philo, CYAN, "is thiking", get_time());
 	}
 }

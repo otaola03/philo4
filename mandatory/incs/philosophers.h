@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:53:08 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 21:20:51 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:01:37 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct s_mem
 	pthread_mutex_t	*forks_mtx;
 	pthread_mutex_t	print_mtx;
 	pthread_mutex_t	cont_mtx;
+	pthread_mutex_t	gap_mtx;
 	long			start_time;
 	t_mem_status	status;
 	t_philo_status	*philos_status;

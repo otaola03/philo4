@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:59:56 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/03 20:36:29 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:02:46 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_create_mutex(t_mem *mem, int num)
 		return (1);
 	if (pthread_mutex_init(&mem->cont_mtx, NULL))
 		return (1);
+	if (pthread_mutex_init(&mem->gap_mtx, NULL))
+		return (1);
 	return (0);
 }
 
@@ -39,5 +41,7 @@ void	ft_destroy_mutex(t_mem *mem, int num)
 	if (pthread_mutex_destroy(&mem->print_mtx))
 		return ;
 	if (pthread_mutex_destroy(&mem->cont_mtx))
+		return ;
+	if (pthread_mutex_destroy(&mem->gap_mtx))
 		return ;
 }
