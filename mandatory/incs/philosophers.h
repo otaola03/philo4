@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:53:08 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/04 14:01:37 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/04 14:25:16 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,17 @@
 # define RED		"\033[0;31m"
 # define WHITE		"\033[0;37m"
 
-typedef enum	e_philo_status {
-	thinking, eating, sleeping
+typedef enum e_philo_status {
+	thinking,
+	eating,
+	sleeping
 }	t_philo_status;
 
-typedef enum	e_mem_status {
-	creating, alive, dead, block
+typedef enum e_mem_status {
+	creating,
+	alive,
+	dead,
+	block
 }	t_mem_status;
 
 typedef struct s_philo	t_philo;
@@ -74,7 +79,7 @@ int		ft_atoi(const char *str);
 void	ft_usleep(suseconds_t time);
 void	ft_lock_mutex(pthread_mutex_t *mutex);
 void	ft_unlock_mutex(pthread_mutex_t *mutex);
-int	ft_strlen(char *str);
+int		ft_strlen(char *str);
 
 /*-------------- CREATE-MUTEX -------------*/
 int		ft_create_mutex(t_mem *mem, int num);
