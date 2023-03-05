@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 21:17:22 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/04 14:23:32 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/05 13:09:38 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_check_argv(char **argv)
 	int	i;
 	int	j;
 
+	if (ft_atoi(argv[0]) <= 0)
+		return (1);
 	i = -1;
 	while (argv[++i])
 	{
@@ -26,7 +28,11 @@ int	ft_check_argv(char **argv)
 		while (argv[i][++j])
 			if (!('0' <= argv[i][j] && argv[i][j] <= '9'))
 				return (1);
+		if (i != 0 && i != 4 && ft_atoi(argv[i]) < 60)
+			return (1);
 	}
+	if (i-- == 5 && ft_atoi(argv[i]) == 0)
+		return (1);
 	return (0);
 }
 
@@ -61,5 +67,7 @@ int	ft_save_param(char **argv, int argc, t_mem *mem)
 	mem->status = creating;
 	mem->philos_finished = 0;
 	mem->philos_status = ft_initialize_philos_status(mem->num);
+	if (!mem->philos_status)
+		return (1);
 	return (0);
 }

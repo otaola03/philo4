@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 19:53:31 by jperez            #+#    #+#             */
-/*   Updated: 2023/02/26 18:42:35 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/05 12:52:42 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	main(int argc, char **argv)
 		free(mem);
 		return (1);
 	}
-	if (ft_create_mutex(mem, mem->num) || ft_initialize_philo(mem, mem->num))
+	if (ft_create_mutex(mem, mem->num) || ft_initialize_philo(mem, mem->num) || \
+		ft_start_threads(mem, mem->num))
 	{
-		ft_general_free(mem);
+		ft_pree_free(mem);
 		return (1);
 	}
-	ft_start_threads(mem, mem->num);
 	ft_general_free(mem);
 	return (0);
 }

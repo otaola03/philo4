@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:53:08 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/04 14:41:43 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/05 12:51:18 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,6 @@ void	ft_general_free(t_mem *mem);
 
 /*-------------- PRINT-MSG -------------*/
 void	ft_print_msg(t_philo *philo, char *color, char *msg, long end);
+void	ft_pree_free(t_mem *mem);
 
 #endif
