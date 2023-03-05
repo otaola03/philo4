@@ -6,7 +6,7 @@
 /*   By: jperez <jperez@student.42urduliz.>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:23:48 by jperez            #+#    #+#             */
-/*   Updated: 2023/03/05 13:21:24 by jperez           ###   ########.fr       */
+/*   Updated: 2023/03/05 18:28:31 by jperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_start_threads(t_mem *mem, int num)
 	{
 		printf("%d 1 has taken a fork\n", 0);
 		ft_usleep2(mem->sleep);
-		printf("%s%ld 1 died%s\n", RED, mem->sleep / 1000, WHITE);
+		printf("%s%ld 1 died%s\n", RED, mem->dead / 1000, WHITE);
 		return (1);
 	}
 	mem->th = (pthread_t *)malloc(sizeof(pthread_t) * num);
